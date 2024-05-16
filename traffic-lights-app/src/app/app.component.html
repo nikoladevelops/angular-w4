@@ -8,7 +8,7 @@
 
 <div class="column">
     <traffic-light orientation="vertical" startColor="red"></traffic-light>
-    <button class="breakdown-button" (click)="breakDownAll()">Breakdown</button>
+    <button class="breakdown-button" (click)="breakDownAll()" [disabled]="isBreakDownDisabled" >Breakdown</button>
     <traffic-light orientation="vertical" startColor="red"></traffic-light>
 </div>
 

@@ -18,6 +18,7 @@ export class TrafficLightComponent {
   previousColor:string="";
 
   breakDownOccurred:boolean = false
+  isBreakDownBtnDisabled:boolean = false
 
   startTrafficLight(){
     if(this.breakDownOccurred){
@@ -82,13 +83,22 @@ export class TrafficLightComponent {
 
   breakDown(){
     let timesExecuted = 0;
+    this.breakDownOccurred=true;
 
     const intervalId = setInterval(() => {
       if (timesExecuted === 10) {
         clearInterval(intervalId);
         this.breakDownOccurred = false;
         this.startTrafficLight();
+
+
         return;
+      }
+
+      if(this.currentColor!= "yellow"){
+        this.currentColor = "yellow"
+      }else{
+        this.currentColor=""
       }
 
       timesExecuted += 1;

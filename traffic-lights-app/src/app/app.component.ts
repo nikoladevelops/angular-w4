@@ -13,6 +13,8 @@ export class AppComponent {
   @ViewChildren(TrafficLightComponent)
   private trafficLightComponents!: QueryList<TrafficLightComponent>;
 
+  isBreakDownDisabled:boolean = false
+
   ngAfterViewInit ():void{
     setTimeout(() => {
       this.startAllTrafficLights();
@@ -26,9 +28,15 @@ export class AppComponent {
   }
 
   breakDownAll():void{
+    this.isBreakDownDisabled=true
+    
     this.trafficLightComponents.forEach(trafficLight => {
       trafficLight.breakDown();
     });
+
+    setTimeout(() => {
+      this.isBreakDownDisabled=false
+    }, 10000);
   }
 
 }
