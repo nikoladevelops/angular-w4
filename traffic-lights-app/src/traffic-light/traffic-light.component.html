@@ -1,0 +1,12 @@
+<div class="traffic-light-holder">
+    <div [ngClass]="orientation === 'horizontal' ? 'traffic-light-horizontal': 'traffic-light-vertical'">
+        <div class="light" [ngClass]="currentColor === 'red' ? 'red-enabled':'red-disabled'"></div>
+        <div class="light" [ngClass]="currentColor === 'yellow' ? 'yellow-enabled' : 'yellow-disabled'"></div>
+        <div class="light" [ngClass]="currentColor === 'green' ? 'green-enabled' : 'green-disabled'"></div>
+    </div>
+</div>
+
+<div>
+    <button class="crossButton" (click)="tryCrossing()" [disabled]="currentColor === 'red'">Cross</button>
+</div>
+  
